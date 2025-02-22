@@ -41,12 +41,10 @@ class ResetPasswordController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
             /** @var string $email */
             $email = $form->get('email')->getData();
 
-            return $this->processSendingPasswordResetEmail($email, $mailer, $translator
-            );
+            return $this->processSendingPasswordResetEmail($email, $mailer, $translator);
         }
 
         return $this->render('reset_password/request.html.twig', [
@@ -122,7 +120,7 @@ class ResetPasswordController extends AbstractController
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('profile_show');
         }
 
         return $this->render('reset_password/reset.html.twig', [
@@ -158,18 +156,16 @@ class ResetPasswordController extends AbstractController
         }
 
         $email = (new TemplatedEmail())
-            ->from(new Address('mailer@your-domain.com', 'Enzo'))
+            ->from(new Address('mailer@example.com', 'Enzo'))
             ->to((string) $user->getEmail())
             ->subject('Your password reset request')
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
-            ])
-        ;
+            ]);
 
         $mailer->send($email);
 
-        // Store the token object in session for retrieval in check-email route.
         $this->setTokenObjectInSession($resetToken);
 
         return $this->redirectToRoute('app_check_email');
