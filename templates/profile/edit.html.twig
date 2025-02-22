@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Edit Profile</h1>
+    {{ form_start(editForm) }}
+    
+    {{ form_row(editForm.email) }}
+    {{ form_row(editForm.firstname) }}
+    {{ form_row(editForm.lastname) }}
+    
+    {% for role in editForm.roles %}
+        {{ form_row(role) }}
+    {% endfor %}
+
+    <button type="submit">Save changes</button>
+    {{ form_end(editForm) }}
+{% endblock %}

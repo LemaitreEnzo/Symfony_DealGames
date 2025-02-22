@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+<h1>Admin Dashboard</h1>
+
+<h2>Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a href="{{ path('admin_user_edit', {id: user.id}) }}">Edit</a>
+                <a href="{{ path('admin_user_delete', {id: user.id}) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Announces</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ad in ads %}
+        <tr>
+            <td>{{ ad.id }}</td>
+            <td>{{ ad.title }}</td>
+            <td>{{ ad.description }}</td>
+            <td>
+                <a href="{{ path('admin_ad_edit', {id: ad.id}) }}">Edit</a>
+                <a href="{{ path('admin_ad_delete', {id: ad.id}) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('app_index') }}">Accueil</a>
+{% endblock %}

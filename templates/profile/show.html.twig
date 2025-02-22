@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Profile</h1>
+	<p>Email:
+		{{ user.email }}</p>
+		{{ user.firstname }}</p>
+		{{ user.lastname }}</p>
+	<a href="{{ path('app_index') }}">Accueil</a>
+	<a href="{{ path('profile_edit') }}">Edit Profile</a>
+	<a href="{{ path('app_forgot_password_request') }}">Change Password</a>
+	<a href="{{ path('app_logout') }}">Logout</a>
+
+	<h2>Your Announcements:</h2>
+	{% if ads is empty %}
+		<p>You have no announcements yet.</p>
+	{% else %}
+		<ul>
+			{% for ad in ads %}
+				<li>
+					<strong>{{ ad.title }}</strong>
+					-
+					{{ ad.createdAt|date('Y-m-d H:i') }}
+					<a href="{{ path('ad_show', {'id': ad.id}) }}">View Details</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,80 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+    methods: [GET, POST]
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+    methods: [GET, POST]
+
+ad_create:
+    path: /ads/create
+    controller: App\Controller\CreateAdController::create
+    methods: [GET, POST]
+
+ad_show:
+    path: /ads/{id}
+    controller: App\Controller\IndexController::show
+    methods: [GET]
+
+ad_edit:
+    path: /ads/{id}/edit
+    controller: App\Controller\EditAdController::edit
+    methods: [GET, POST]
+
+ad_delete:
+    path: /ads/{id}/delete
+    controller: App\Controller\DeleteAdController::delete
+    methods: [POST]
+
+
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+    methods: [GET, POST]
+
+app_verify_email:
+    path: /verify/email
+    controller: App\Controller\RegistrationController::verifyUserEmail
+    methods: [GET]
+
+app_forgot_password_request:
+    path: /reset-password
+    controller: App\Controller\ResetPasswordController::request
+    methods: [GET, POST]
+
+app_check_email:
+    path: /reset-password/check-email
+    controller: App\Controller\ResetPasswordController::checkEmail
+
+app_reset_password:
+    path: /reset-password/reset/{token}
+    controller: App\Controller\ResetPasswordController::reset
+
+
+profile_show:
+    path: /profile
+    controller: App\Controller\ProfileController::show
+    methods: [GET]
+
+profile_edit:
+    path: /profile/edit
+    controller: App\Controller\ProfileController::edit
+    methods: [GET, POST]
+
+profile_change_password:
+    path: /profile/change-password
+    controller: App\Controller\ProfileController::changePassword
+    methods: [GET, POST]
+
+admin:
+    path: /admin
+    controller: App\Controller\Admin\AdminDashboardController::index
+    methods: [GET]

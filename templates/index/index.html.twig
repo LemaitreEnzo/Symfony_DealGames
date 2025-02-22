@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<h1>Liste des annonces</h1>
+
+<ul>
+    {% for ad in ads %}
+        <li>
+            <a href="{{ path('ad_show', { 'id': ad.id }) }}">{{ ad.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{{ path('profile_show')}}">Voir le profil</a>
+
+<a href="{{ path('ad_create')}}">Ajouter un jeu</a>
+
+<a href="{{ path('app_logout') }}">Logout</a>
+{% endblock %}
