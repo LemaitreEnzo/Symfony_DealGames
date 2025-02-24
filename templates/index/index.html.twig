@@ -5,16 +5,27 @@
 {% block body %}
 <h1>Liste des annonces</h1>
 
+<form method="get" action="{{ path('app_index') }}">
+    <label for="category">Filtrer par catégorie :</label>
+    <select name="category" id="category" onchange="this.form.submit()">
+        <option value="">Toutes les catégories</option>
+        {% for category in categories %}
+            <option value="{{ category.id }}" {% if app.request.query.get('category') == category.id %}selected{% endif %}>
+                {{ category.name }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
 <ul>
     {% for ad in ads %}
         <li>
-            <a href="{{ path('ad_show', { 'id': ad.id }) }}">{{ ad.title }}</a>
+            <a href="{{ path('ad_show', { 'id': ad.id }) }}">{{ ad.title }}</a> - {{ ad.category.name }} - {{ ad.user.firstname }} {{ ad.user.lastname }}
         </li>
     {% endfor %}
 </ul>
+
 <a href="{{ path('profile_show')}}">Voir le profil</a>
-
 <a href="{{ path('ad_create')}}">Ajouter un jeu</a>
-
 <a href="{{ path('app_logout') }}">Logout</a>
 {% endblock %}
