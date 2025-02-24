@@ -59,6 +59,7 @@ class ProfileController extends AbstractController
         $form = $this->createForm(ProfileEditFormType::class, $user);
         $form->handleRequest($request);
 
+
         // Traitement du formulaire après soumission et validation
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush(); // Enregistrement des modifications

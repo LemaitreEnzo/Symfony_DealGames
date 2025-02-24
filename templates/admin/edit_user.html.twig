@@ -3,7 +3,7 @@
 {% block title %}Modifier l'utilisateur{% endblock %}
 
 {% block body %}
-<h1>Modifier l'utilisateur {{ user.email }}</h1>
+<h1>Modifier l'utilisateur {{ user.firstname }} {{user.lastname}}</h1>
 
 {{ form_start(form) }}
     {{ form_row(form.email) }}

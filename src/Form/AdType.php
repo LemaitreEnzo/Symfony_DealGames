@@ -21,13 +21,6 @@ class AdType extends AbstractType
             ->add('author')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
-                'allow_delete' => true, // permet de supprimer l'image
-                'download_uri' => true, // permet de télécharger l'image
-            ])
-            ->add('created_at', null, [
-                'widget' => 'single_text',
-                'mapped' => false,
-                'required' => false,
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,

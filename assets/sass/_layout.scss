@@ -1,0 +1,151 @@
+@use './variables';
+
+form {
+    margin: 20px auto;
+    text-align: center;
+
+    label {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    select {
+        padding: 5px 10px;
+        border: 1px solid variables.$border-color;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input,
+    textarea {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid variables.$border-color;
+        border-radius: 4px;
+        font-size: 14px;
+        color: variables.$text-color;
+    }
+}
+
+.btn {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: variables.$button-color;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: color-mix(in srgb, variables.$button-color 90%, black);
+    }
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+
+    li {
+        background-color: #fff;
+        border: 1px solid variables.$border-color;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 15px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: variables.$primary-color;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: variables.$secondary-color;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: color-mix(in srgb, variables.$secondary-color 90%, black);
+    }
+}
+
+
+p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: variables.$error-color;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+
+    thead {
+        background-color: variables.$table-header-bg;
+        color: variables.$table-header-color;
+
+        th {
+            padding: 10px;
+            border: 1px solid variables.$border-color;
+        }
+    }
+
+    tbody {
+        tr {
+            &:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            &:hover {
+                background-color: variables.$primary-color;
+                color: #fff;
+            }
+
+            td {
+                padding: 10px;
+                border: 1px solid variables.$border-color;
+            }
+
+            a {
+                text-decoration: none;
+                color: variables.$link-color;
+                font-weight: bold;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: color-mix(in srgb, variables.$link-color 90%, black);
+                }
+            }
+        }
+    }
+}

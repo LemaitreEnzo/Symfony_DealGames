@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Form;
 
@@ -6,8 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileEditFormType extends AbstractType
 {
@@ -15,9 +16,23 @@ class ProfileEditFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe',
-                'required' => false,
+            ->add('lastname', TextType::class, [
+                'constraints' => [
+                    new NotBlank(
+                        [
+                            'message' => 'Un prénom est obligatoire !'
+                        ]
+                    )
+                ]
+            ])
+            ->add('firstname', TextType::class, [
+                'constraints' => [
+                    new NotBlank(
+                        [
+                            'message' => 'Un nom est obligatoire !'
+                        ]
+                    )
+                ]
             ]);
     }
 

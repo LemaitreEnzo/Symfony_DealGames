@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "sass": "sass --watch assets/sass/main.scss assets/styles/app.css --poll"
+  },
+  "dependencies": {
+    "sass": "^1.85.0"
+  }
+}

@@ -2,14 +2,10 @@
 
 {% block body %}
 	<h1>Profile</h1>
-	<p>Email:
-		{{ user.email }}</p>
-		{{ user.firstname }}</p>
-		{{ user.lastname }}</p>
-	<a href="{{ path('app_index') }}">Accueil</a>
-	<a href="{{ path('profile_edit') }}">Edit Profile</a>
-	<a href="{{ path('app_forgot_password_request') }}">Change Password</a>
-	<a href="{{ path('app_logout') }}">Logout</a>
+	<p>Email: {{ user.email }}</p>
+	<p>Prénom: {{ user.firstname }}</p>
+	<p>Nom: {{ user.lastname }}</p>
+
 
 	<h2>Your Announcements:</h2>
 	{% if ads is empty %}
@@ -26,4 +22,9 @@
 			{% endfor %}
 		</ul>
 	{% endif %}
+	
+	<a href="{{ path('app_index') }}">Accueil</a>
+	<a href="{{ path('profile_edit') }}">Edit Profile</a>
+	<a href="{{ path('app_forgot_password_request') }}">Change Password</a>
+	<a href="{{ path('app_logout') }}">Logout</a>
 {% endblock %}

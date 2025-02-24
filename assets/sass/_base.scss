@@ -1,0 +1,21 @@
+@use './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: variables.$background-color;
+    color: variables.$text-color;
+    padding: 5%;
+}
+h1, h2 {
+    text-align: center;
+    color: variables.$primary-color;
+    margin-bottom: 20px;
+}
+
+
