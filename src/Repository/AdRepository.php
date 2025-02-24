@@ -16,6 +16,22 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
+    /**
+     * Retourne les annonces triées par catégorie
+     */
+    public function findByCategory($categoryId): array
+    {
+        $queryBuilder = $this->createQueryBuilder('a')
+            ->orderBy('a.created_at', 'DESC');
+
+        if ($categoryId !== 'all') {
+            $queryBuilder->andWhere('a.category = :categoryId')
+                ->setParameter('categoryId', $categoryId);
+        }
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Ad[] Returns an array of Ad objects
 //     */

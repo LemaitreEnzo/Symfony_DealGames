@@ -123,7 +123,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
  
         return $this;
-    } 
+    }
 
     /**
      * @see UserInterface

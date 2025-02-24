@@ -37,4 +37,13 @@ final class IndexController extends AbstractController
             'ad' => $ad,
         ]);
     }
+    
+    public function findByCategory(AdRepository $adRepository): Response
+    {
+        $ads = $adRepository->findAllSortedByCategory();
+
+        return $this->render('ad/index.html.twig', [
+            'ads' => $ads,
+        ]);
+    }
 }

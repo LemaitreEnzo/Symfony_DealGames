@@ -30,6 +30,7 @@
         "symfony/mime": "7.2.*",
         "symfony/monolog-bundle": "^3.10",
         "symfony/notifier": "7.2.*",
+        "symfony/password-hasher": "7.2.*",
         "symfony/process": "7.2.*",
         "symfony/property-access": "7.2.*",
         "symfony/property-info": "7.2.*",
@@ -48,7 +49,8 @@
         "symfonycasts/reset-password-bundle": "^1.23",
         "symfonycasts/verify-email-bundle": "^1.17",
         "twig/extra-bundle": "^2.12|^3.20",
-        "twig/twig": "^2.12|^3.20"
+        "twig/twig": "^2.12|^3.20",
+        "vich/uploader-bundle": "^2.5"
     },
     "config": {
         "allow-plugins": {
@@ -102,6 +104,8 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^4.0",
+        "fakerphp/faker": "^1.24",
         "phpunit/phpunit": "^9.6.22",
         "symfony/browser-kit": "7.2.*",
         "symfony/css-selector": "7.2.*",
@@ -109,6 +113,7 @@
         "symfony/maker-bundle": "^1.62.1",
         "symfony/phpunit-bridge": "^7.2",
         "symfony/stopwatch": "7.2.*",
-        "symfony/web-profiler-bundle": "7.2.*"
+        "symfony/web-profiler-bundle": "7.2.*",
+        "zenstruck/foundry": "^2.3"
     }
 }

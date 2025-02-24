@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AdType extends AbstractType
 {
@@ -18,7 +19,11 @@ class AdType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('author')
-            ->add('image')
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true, // permet de supprimer l'image
+                'download_uri' => true, // permet de télécharger l'image
+            ])
             ->add('created_at', null, [
                 'widget' => 'single_text',
                 'mapped' => false,
